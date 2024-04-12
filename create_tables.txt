@@ -1,0 +1,24 @@
+create table w_department(department_id number(5) not null,
+department_name varchar2(50) not null,
+loc_name varchar2(50) not null,
+CONSTRAINT department_PK PRIMARY KEY (department_id))
+/
+create table w_employee(
+employee_id     NUMBER(4) primary key  ,
+employee_name varchar2(50) not null,
+job_title varchar2(50) not null,
+manager_id number(10) not null,
+date_hired date not null,
+salary number(10) not null,
+department_id number(5) not null,
+constraint department_fK_employee foreign key(department_id) references W_department(department_id))
+/
+insert all 
+into w_department(DEPARTMENT_ID,   DEPARTMENT_NAME,LOC_NAME) values (1,'Management','London')
+into w_department(DEPARTMENT_ID,   DEPARTMENT_NAME,LOC_NAME) values (2,'Engineering','Cardiff')
+into w_department(DEPARTMENT_ID,   DEPARTMENT_NAME,LOC_NAME) values (3,'Research and Development','Edinburgh')
+into w_department(DEPARTMENT_ID,   DEPARTMENT_NAME,LOC_NAME) values (4,'Sales','Belfast')
+select * from dual;
+/
+commit;
+/
