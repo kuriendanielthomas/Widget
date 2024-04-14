@@ -8,11 +8,13 @@ return v_salary;
 exception 
 when no_data_found then
 P_ErrorMsg:='Either Employee ID '|| P_employeeiID|| '  not found.Please provide a valid existing employee ID.';
-return v_salary;
+return 0;
 --dbms_output.put_line(p_error_msg) ;
 when too_many_rows then
 P_ErrorMsg:='Duplicate employee ID '|| P_employeeiID|| '  is found .Please contact administrator.';
+return 0;
 when others then
 P_ErrorMsg:=sqlerrm;
+return 0;
 end; 
 
